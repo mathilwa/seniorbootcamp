@@ -9,5 +9,6 @@
 - Kjør `npm install` i rotmappen for å installere alle avhengigheter
 
 ## For å kjøre frontend
-- Kjør `npm start` for å kjøre opp express-serveren, for kontinuerlig bygging ved hver lagring og for oppsett av config.
+- Kjør `npm start` for å kjøre opp express-serveren.
+- Kjøe `npm run dev` for kontinuerling bygging av prosjektet.
 - Åpne http://localhost:8080
