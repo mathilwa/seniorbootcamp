@@ -2,7 +2,7 @@
 
 .idea/
 
-app/frontend/public/dist/
+app/public/dist/
 *.iml
 node_modules/
 
