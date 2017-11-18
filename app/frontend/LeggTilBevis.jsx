@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 const LeggTilBevis = ({bevis, oppdater, lagreBevis}) => (
   <div className="blokk">
-    <h2>Legg til nytt bevis</h2>
-    <form onSubmit={lagreBevis}>
+    <h2 className="blokk-heading">Legg til nytt bevis</h2>
+    <form className="blokk-innhold" onSubmit={lagreBevis}>
       <div className="input-gruppe">
         <label htmlFor="navn">Navn</label>
         <input type="text" id="navn" value={bevis.navn} onChange={(event) => oppdater(event, 'navn')}/>
