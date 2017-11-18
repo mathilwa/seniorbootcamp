@@ -5,8 +5,8 @@ const BevisOversikt = ({bevisliste}) => {
   return (
     <div>
       <h2>Bevisoversikt</h2>
-      <ul>
-        {bevisliste.map((bevis, index) => <li key={index}>{bevis.navn}, {bevis.bevisnummer}</li>)}
+      <ul className="bevisliste">
+        {bevisliste.map((bevis, index) => <li className="bevis" key={index}>{bevis.navn}, {bevis.bevisnummer}</li>)}
       </ul>
     </div>
   );
