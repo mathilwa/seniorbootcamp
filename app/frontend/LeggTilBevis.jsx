@@ -1,21 +1,31 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LeggTilBevis = ({ bevis, oppdater, lagreBevis }) => (
-  <div>
+const LeggTilBevis = ({bevis, oppdater, lagreBevis}) => (
+  <div className="blokk">
     <h2>Legg til nytt bevis</h2>
     <form onSubmit={lagreBevis}>
-      <label htmlFor="navn-input">Navn</label>
-      <input type="text" id="navn-input" value={bevis.navn} onChange={(event) => oppdater(event, 'navn')}/>
-      <label htmlFor="kommunenummer-input">Kommunenummer</label>
-      <input type="text" id="kommunenummer-input" value={bevis.kommunenummer} onChange={(event) => oppdater(event, 'kommunenummer')}/>
-      <label htmlFor="bevis-input">Bevisnummer</label>
-      <input type="text" id="bevis-input" value={bevis.bevisnummer} onChange={(event) => oppdater(event, 'bevisnummer')}/>
-      <label htmlFor="gyldigFra-input">Gyldig fra</label>
-      <input type="text" id="gyldigFra-input" value={bevis.gyldigFra} onChange={(event) => oppdater(event, 'gyldigFra')}/>
-      <label htmlFor="gyldigTil-input">Gyldig til</label>
-      <input type="text" id="gyldigTil-input" value={bevis.gyldigTil} onChange={(event) => oppdater(event, 'gyldigTil')}/>
-      <button>Lagre</button>
+      <div className="input-gruppe">
+        <label htmlFor="navn">Navn</label>
+        <input type="text" id="navn" value={bevis.navn} onChange={(event) => oppdater(event, 'navn')}/>
+      </div>
+      <div className="input-gruppe">
+        <label htmlFor="kommunenummer">Kommunenummer</label>
+        <input type="text" id="kommunenummer" value={bevis.kommunenummer} onChange={(event) => oppdater(event, 'kommunenummer')}/>
+      </div>
+      <div className="input-gruppe">
+        <label htmlFor="bevisnummer">Bevisnummer</label>
+        <input type="text" id="bevisnummer" value={bevis.bevisnummer} onChange={(event) => oppdater(event, 'bevisnummer')}/>
+      </div>
+      <div className="input-gruppe">
+        <label htmlFor="gyldigFra">Gyldig fra</label>
+        <input type="text" id="gyldigFra" value={bevis.gyldigFra} onChange={(event) => oppdater(event, 'gyldigFra')}/>
+      </div>
+      <div className="input-gruppe">
+        <label htmlFor="gyldigTil">Gyldig til</label>
+        <input type="text" id="gyldigTil" value={bevis.gyldigTil} onChange={(event) => oppdater(event, 'gyldigTil')}/>
+      </div>
+      <button className="knapp">Lagre</button>
     </form>
   </div>
 );
