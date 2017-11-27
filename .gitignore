@@ -1,8 +1,7 @@
-*.class
-
 .idea/
 
 app/public/dist/
+
 *.iml
 node_modules/
 
