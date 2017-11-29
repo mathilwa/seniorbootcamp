@@ -3,9 +3,10 @@ import 'babel-polyfill';
 import { polyfill } from 'es6-promise';
 polyfill();
 
+import { connect } from 'react-redux';
 import BevisOversikt from './BevisOversikt.jsx';
 import LeggTilBevis from './LeggTilBevis.jsx';
-import { bevis } from './../data/bevis.js';
+import { leggTilBevis } from './redux/bevisAction.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +14,6 @@ class App extends React.Component {
     this.oppdater = this.oppdater.bind(this);
     this.lagreBevis = this.lagreBevis.bind(this);
     this.state = {
-      bevisliste: bevis,
       bevis: {},
     };
   }
@@ -26,20 +26,24 @@ class App extends React.Component {
 
   lagreBevis(event) {
     event.preventDefault();
-    const bevisliste = this.state.bevisliste;
-    bevisliste.push(this.state.bevis);
-    this.setState({bevisliste: bevisliste, bevis: {}});
+    this.props.dispatch(leggTilBevis(this.state.bevis));
   }
 
   render() {
     return (
-        <div>
-          <h1>Registeret</h1>
-          <BevisOversikt bevisliste={this.state.bevisliste} />
-          <LeggTilBevis bevis={this.state.bevis} oppdater={this.oppdater} lagreBevis={this.lagreBevis} />
-        </div>
+      <div>
+        <h1>Registeret</h1>
+        <BevisOversikt bevisliste={this.props.alleBevis} />
+        <LeggTilBevis bevis={this.state.bevis} oppdater={this.oppdater} lagreBevis={this.lagreBevis} />
+      </div>
     );
   }
 };
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    alleBevis: state.alleBevis,
+  };
+};
+
+export default connect(mapStateToProps)(App);

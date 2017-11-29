@@ -3,7 +3,7 @@ export const KJONN_KVINNE = 'K';
 export const BRUKERKODE_PASSASJER = 'P';
 export const BRUKERKODE_FORER = 'F';
 
-export const bevis = [
+export const bevisliste = [
   {
     navn: 'Bolav Bekkestad',
     kommunenummer: '1111',
