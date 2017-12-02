@@ -10,6 +10,8 @@ SETT_GYLDIGFRA,
 SETT_GYLDIGTIL,
 SETT_KOMMUNENUMMER,
 SETT_FODSELSAAR,
+SETT_NAVN,
+SETT_KJONN,
 } from './bevisAction.js';
 
 
@@ -20,8 +22,8 @@ const initialStateBevis = {
   fodselsaar: '',
   kjonn: KJONN_MANN,
   brukerkode: BRUKERKODE_FORER,
-  gyldigFra: moment(),
-  gyldigTil: moment().add('day', 1),
+  gyldigFra: '',
+  gyldigTil: '',
 };
 
 const initialStateAlleBevis = bevisliste;
@@ -41,18 +43,22 @@ export const bevis = (state = initialStateBevis, action) => {
   switch (action.type) {
     case CLEAR_BEVIS:
       return initialStateBevis;
+    case SETT_NAVN:
+      return Object.assign({}, state, { navn: action.navn });
     case SETT_BEVISNUMMER:
-      return state.push({ bevisnummer: action.bevisnummer });
+      return Object.assign({}, state, { bevisnummer: action.bevisnummer });
     case SETT_KOMMUNENUMMER:
-      return state.push({ kommunenummer: action.kommunenummer });
+      return Object.assign({}, state, { kommunenummer: action.kommunenummer });
     case SETT_FODSELSAAR:
-      return state.push({ fodselsaar: action.fodselsaar });
+      return Object.assign({}, state, { fodselsaar: action.fodselsaar });
+    case SETT_KJONN:
+      return Object.assign({}, state, { kjonn: action.kjonn });
     case SETT_GYLDIGFRA:
-      return state.push({ gyldigFra: action.gyldigFra });
+      return Object.assign({}, state, { gyldigFra: action.gyldigFra });
     case SETT_GYLDIGTIL:
-      return state.push({ gyldigTil: action.gyldigTil });
+      return Object.assign({}, state, { gyldigTil: action.gyldigTil });
     case SETT_BRUKERKODE:
-      return state.push({ brukerKode: action.brukerKode });
+      return Object.assign({}, state, { brukerKode: action.brukerKode });
     default:
       return state;
   }

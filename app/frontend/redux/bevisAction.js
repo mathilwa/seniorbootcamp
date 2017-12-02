@@ -8,6 +8,8 @@ export const SETT_GYLDIGFRA = 'SETT_GYLDIGFRA';
 export const SETT_GYLDIGTIL = 'SETT_GYLDIGTIL';
 export const SETT_BRUKERKODE = 'SETT_BRUKERKODE';
 export const SETT_BEVISTYPE = 'SETT_BEVISTYPE';
+export const SETT_NAVN = 'SETT_NAVN';
+export const SETT_KJONN = 'SETT_KJONN';
 
 export function leggTilBevis(bevis) {
   return {
@@ -25,6 +27,13 @@ export function clearAlleBevis() {
 export function clearBevis() {
   return {
     type: CLEAR_BEVIS,
+  };
+}
+
+export function settNavn(navn) {
+  return {
+    type: SETT_NAVN,
+    navn,
   };
 }
 
@@ -56,13 +65,6 @@ export function settGyldigTil(gyldigTil) {
   };
 }
 
-export function settBevistype(bevistype) {
-  return {
-    type: SETT_BEVISTYPE,
-    bevistype,
-  };
-}
-
 export function settFodselsaar(fodselsaar) {
   return {
     type: SETT_FODSELSAAR,
@@ -74,5 +76,12 @@ export function settBrukerkode(brukerKode) {
   return {
     type: SETT_BRUKERKODE,
     brukerKode,
+  };
+}
+
+export function settKjonn(kjonn) {
+  return {
+    type: SETT_KJONN,
+    kjonn,
   };
 }
